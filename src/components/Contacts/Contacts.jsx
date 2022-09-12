@@ -1,33 +1,31 @@
 import PropTypes from 'prop-types';
 import s from './contacts.module.css';
+import { useDispatch } from 'react-redux';
+import todosActions from 'redux/todos/todos-actions';
 
-const Contacts = ({ items, removeContact }) => {
-  const elements = items.map(({ id, name, number }) => (
-    <li key={id} className={s.listItem}>
-      <span>
-        {name} {number}
-      </span>
-      <button onClick={() => removeContact(id)} className={s.btn} type="submit">
-        Delete
+function Contacts({ renderFilterContacts }) {
+  const dispatch = useDispatch();
+  const renderContact = renderFilterContacts.map(({ id, name, number }) => (
+    <li className={s.item} key={id}>
+      {name} : {number}
+      <button
+        className={s.listBtn}
+        type="button"
+        onClick={e => dispatch(todosActions.deleteContact(e.target.id))}
+        id={id}
+      >
+        X
       </button>
     </li>
   ));
 
-  return (
-    <>
-      <ol>{elements}</ol>
-    </>
-  );
-};
+  return <ul className={s.list}>{renderContact}</ul>;
+}
 
 export default Contacts;
 
-// Contacts.defaultProps = {
-//   items: [],
-// };
-
 Contacts.propTypes = {
-  items: PropTypes.arrayOf(
+  renderFilterContacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
