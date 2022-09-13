@@ -7,9 +7,9 @@ import Filter from './Filter/Filter';
 import s from './App.module.css';
 
 import { useSelector, useDispatch } from 'react-redux';
-import todosActions from 'redux/todos/todos-actions';
+import todosActions from 'redux/contacts/todos-actions';
 
-import { filterStore, itemsStore } from 'redux/todos/todos-selector';
+import { filterStore, itemsStore } from 'redux/contacts/todos-selector';
 
 function App() {
   const dispatch = useDispatch();

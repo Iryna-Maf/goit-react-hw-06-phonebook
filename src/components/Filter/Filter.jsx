@@ -2,9 +2,9 @@ import s from './Filter.module.css';
 import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux';
-import todosActions from 'redux/todos/todos-actions';
+import todosActions from 'redux/contacts/todos-actions';
 
-import { filterStore } from 'redux/todos/todos-selector';
+import { filterStore } from 'redux/contacts/todos-selector';
 
 function Filter() {
   const dispatch = useDispatch();

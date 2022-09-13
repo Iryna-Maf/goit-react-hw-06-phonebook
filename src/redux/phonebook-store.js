@@ -1,5 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import todosReduser from './todos/todos-reducer';
+import todosReduser from './contacts/todos-reducer';
 import {
   persistStore,
   persistReducer,
